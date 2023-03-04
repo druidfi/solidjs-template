@@ -9,7 +9,7 @@ const SecondPage = lazy(() => import("./pages/SecondPage"));
 
 const App: Component = () => {
   return (
-    <div>
+    <div class="container mx-auto">
       <Header />
         <main>
             <Routes>

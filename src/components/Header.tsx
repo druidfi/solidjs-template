@@ -3,7 +3,7 @@ import { A } from "@solidjs/router"
 
 const Header: Component = () => {
     return (
-        <header>
+        <header class="bg-gray-100">
             <li>
                 <A href="/">Home</A>
             </li>
