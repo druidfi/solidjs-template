@@ -9,7 +9,7 @@ const Header: Component = () => {
                     <A href="/">Home</A>
                 </li>
                 <li class="mr-2">
-                    <A href="/second">Second Page</A>
+                    <A href="/repositories">Repositories</A>
                 </li>
             </ul>
         </header>
