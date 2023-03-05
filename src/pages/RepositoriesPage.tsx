@@ -3,13 +3,14 @@ import { Component, For } from 'solid-js';
 import { repositories } from "../github";
 import { favorites } from "../favorites";
 import { Repository } from "../repository";
+import LoadingSpinner from "../components/LoadingSpinner"
 
 const RepositoriesPage: Component = () => {
     return (
         <>
             <h1>Repositories</h1>
             <ul>
-                <For each={repositories()}>
+                <For each={repositories()} fallback={<LoadingSpinner />}>
                     {(repo :Repository) => (
                         <li class="mb-2">
                             <a href={repo.html_url}>{repo.full_name}</a>
