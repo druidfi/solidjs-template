@@ -1,15 +1,17 @@
-import type { Component } from 'solid-js';
+import { Component } from 'solid-js';
 import { A } from "@solidjs/router"
 
 const Header: Component = () => {
     return (
         <header class="bg-gray-100">
-            <li>
-                <A href="/">Home</A>
-            </li>
-            <li>
-                <A href="/second">Second Page</A>
-            </li>
+            <ul class="list-none ml-auto flex items-center pt-2 pb-2">
+                <li class="mr-2">
+                    <A href="/">Home</A>
+                </li>
+                <li class="mr-2">
+                    <A href="/second">Second Page</A>
+                </li>
+            </ul>
         </header>
     );
 };

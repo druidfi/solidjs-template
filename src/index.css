@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 body {
-  margin: 0;
   @apply bg-amber-500
+}
+
+h1 {
+  @apply mt-4 mb-2 text-3xl;
+}
+
+header, main {
+  @apply p-4;
 }
