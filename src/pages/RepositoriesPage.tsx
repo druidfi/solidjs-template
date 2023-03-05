@@ -1,9 +1,16 @@
-import { Component, For } from 'solid-js';
+import {Component, createResource, For} from 'solid-js';
 
-import { repositories } from "../github";
 import { favorites } from "../favorites";
 import { Repository } from "../repository";
 import LoadingSpinner from "../components/LoadingSpinner"
+
+export const [repositories] = createResource<Repository[]>(
+    () => fetch("https://api.github.com/orgs/druidfi/repos")
+        .then((res) => res.json()).catch(error => console.error(error)),
+    {
+        initialValue: [],
+    }
+);
 
 function RepositoryItem(props: { repo: Repository; }) {
     return (
