@@ -6,10 +6,10 @@ const Header: Component = () => {
         <header class="bg-gray-100">
             <ul class="list-none ml-auto flex items-center pt-2 pb-2">
                 <li class="mr-2">
-                    <A href="/">Home</A>
+                    <A href="/" activeClass="text-red-500" inactiveClass="text-black" end={true}>Home</A>
                 </li>
                 <li class="mr-2">
-                    <A href="/repositories">Repositories</A>
+                    <A href="/repositories" activeClass="text-red-500" inactiveClass="text-black">Repositories</A>
                 </li>
             </ul>
         </header>
