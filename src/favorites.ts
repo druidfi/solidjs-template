@@ -16,4 +16,7 @@ export const favorites = createMutable({
         this.repositories = [];
         window.localStorage.setItem("favorites", JSON.stringify(this.repositories));
     },
+    is(repository: Repository) {
+        return this.repositories.some(favorite => favorite.id === repository.id);
+    }
 });

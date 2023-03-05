@@ -16,14 +16,14 @@ const HomePage: Component = () => {
                         <For each={favorites.repositories}>
                             {(repo :Repository) => (
                                 <li class="mb-2">
-                                    <a href={repo.html_url} class="text-white underline">{repo.full_name}</a>
+                                    <a href={repo.html_url}>{repo.full_name}</a>
                                     <p>{repo.description}</p>
                                 </li>
                             )}
                         </For>
                     </ul>
                     <p>
-                        <button onClick={(evt) => {evt.preventDefault();favorites.clear();}}>Clear all favorites</button>
+                        <button onClick={(e) => {e.preventDefault();favorites.clear();}}>Clear all favorites</button>
                     </p>
                 </>
             }

@@ -12,11 +12,14 @@ const RepositoriesPage: Component = () => {
                 <For each={repositories()}>
                     {(repo :Repository) => (
                         <li class="mb-2">
-                            <a href={repo.html_url} class="text-white underline">{repo.full_name}</a>
-                            <a onClick={(evt) => {
-                                evt.preventDefault();
-                                favorites.addFavorite(repo);
-                            }}>⭐</a>
+                            <a href={repo.html_url}>{repo.full_name}</a>
+                            {favorites.is(repo) && <span>⭐</span>}
+                            {!favorites.is(repo) &&
+                                <>
+                                    <span> - </span>
+                                    <a onClick={(e) => {e.preventDefault();favorites.addFavorite(repo);}}>Add to favorites</a>
+                                </>
+                            }
                             <p>{repo.description}</p>
                         </li>
                     )}
