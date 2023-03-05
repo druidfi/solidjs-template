@@ -4,6 +4,15 @@ import { A } from "@solidjs/router"
 import { favorites } from "../favorites"
 import {Repository} from "../repository";
 
+function Favorite(props: { repo: Repository; }) {
+    return (
+        <>
+            <a href={props.repo.html_url} target="_blank">{props.repo.full_name}</a>
+            <p>{props.repo.description}</p>
+        </>
+    )
+}
+
 const HomePage: Component = () => {
     return (
         <>
@@ -16,8 +25,7 @@ const HomePage: Component = () => {
                         <For each={favorites.repositories}>
                             {(repo :Repository) => (
                                 <li class="mb-2">
-                                    <a href={repo.html_url}>{repo.full_name}</a>
-                                    <p>{repo.description}</p>
+                                    <Favorite repo={repo} />
                                 </li>
                             )}
                         </For>
