@@ -2,6 +2,15 @@
 
 A template for simple frontend apps/widgets.
 
+## Building blocks
+
+- SolidJS
+- TypeScript
+- @solidjs/router
+- Tailwind CSS
+- PNPM
+- Vite
+
 ## Requirements
 
 - Node 18
@@ -35,7 +44,3 @@ It correctly bundles Solid in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.
 Your app is ready to be deployed!
-
-## Deployment
-
-You can deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
