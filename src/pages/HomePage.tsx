@@ -1,4 +1,4 @@
-import { Component, For } from 'solid-js';
+import { Component, For, Show } from 'solid-js';
 import { A } from "@solidjs/router"
 
 import { favorites } from "../favorites"
@@ -30,22 +30,21 @@ const HomePage: Component = () => {
             <h1>Home</h1>
             <p>Lorem ipsum</p>
             <h2>My favorites</h2>
-            {favorites.count &&
-                <>
-                    <ul>
-                        <For each={favorites.getList()}>
-                            {(repo :Repository) => (
-                                <li class="mb-2">
-                                    <Favorite repo={repo} />
-                                </li>
-                            )}
-                        </For>
-                    </ul>
-                    <ClearFavoritesButton />
-                </>
-                ||
+            <Show when={favorites.count}>
+                <ul>
+                    <For each={favorites.getList()}>
+                        {(repo :Repository) => (
+                            <li class="mb-2">
+                                <Favorite repo={repo} />
+                            </li>
+                        )}
+                    </For>
+                </ul>
+                <ClearFavoritesButton />
+            </Show>
+            <Show when={!favorites.count}>
                 <p>No favorites yet. You can add favorites from <A href="/repositories">Repositories</A> page</p>
-            }
+            </Show>
         </>
     );
 };
