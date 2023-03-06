@@ -8,6 +8,9 @@ export const favorites = createMutable({
     get count() {
         return this.repositories.length;
     },
+    getList() {
+        return this.repositories.sort((a, b) => a.full_name > b.full_name ? 1 : -1);
+    },
     addFavorite(repository: Repository) {
         this.repositories.push(repository);
         window.localStorage.setItem("favorites", JSON.stringify(this.repositories));

@@ -33,7 +33,7 @@ const RepositoriesPage: Component = () => {
         <>
             <h1>Repositories</h1>
             <ul>
-                <For each={repositories()} fallback={<LoadingSpinner />}>
+                <For each={repositories().sort((a, b) => a.full_name > b.full_name ? 1 : -1)} fallback={<LoadingSpinner />}>
                     {(repo :Repository) => (
                         <li class="mb-2">
                             <RepositoryItem repo={repo} />

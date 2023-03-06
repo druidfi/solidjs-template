@@ -13,6 +13,17 @@ function Favorite(props: { repo: Repository; }) {
     )
 }
 
+function ClearFavoritesButton() {
+    return (
+        <p>
+            <button onClick={(event) => {
+                event.preventDefault();
+                favorites.clear();
+            }}>Clear all favorites</button>
+        </p>
+    )
+}
+
 const HomePage: Component = () => {
     return (
         <>
@@ -22,7 +33,7 @@ const HomePage: Component = () => {
             {favorites.count &&
                 <>
                     <ul>
-                        <For each={favorites.repositories}>
+                        <For each={favorites.getList()}>
                             {(repo :Repository) => (
                                 <li class="mb-2">
                                     <Favorite repo={repo} />
@@ -30,12 +41,11 @@ const HomePage: Component = () => {
                             )}
                         </For>
                     </ul>
-                    <p>
-                        <button onClick={(e) => {e.preventDefault();favorites.clear();}}>Clear all favorites</button>
-                    </p>
+                    <ClearFavoritesButton />
                 </>
+                ||
+                <p>No favorites yet. You can add favorites from <A href="/repositories">Repositories</A> page</p>
             }
-            {!favorites.count && <p>No favorites yet. You can add favorites from <A href="/repositories">Repositories</A> page</p>}
         </>
     );
 };
